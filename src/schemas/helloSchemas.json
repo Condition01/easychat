@@ -1,0 +1,16 @@
+{
+    "getSchema": {
+        "$id": "http://example.com/",
+        "title": "Headers Schema",
+        "type": "object",
+        "properties": {
+            "hello": {
+                "type": "string"
+            }
+        },
+        "additionalProperties": false,
+        "required": [
+            "hello"
+        ]
+    } 
+}
