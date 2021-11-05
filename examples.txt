@@ -1,6 +1,5 @@
 //controllers
 
-
 const getHello = async (request, reply) => {
     return { hello: "GET world!" };
 }
@@ -16,7 +15,6 @@ const postHelloWithSchema = async (request, reply) => {
 module.exports = { getHello, postHello, postHelloWithSchema }
 
 // routes
-
 
 // const { getHello } = require("../controllers/helloController");
 
