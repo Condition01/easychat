@@ -10,23 +10,20 @@ const build = (opts = {}) => {
   const app = fastify(opts);
 
   addSchemas(app, chatSchemas);
-
-  app.register(require('fastify-websocket'), {
+  
+  let socketOpts = {
     errorHandler: (error, conn, req, reply) => {
       conn.destroy(error)
     },
     options: {
       maxPayload: 1048576,
       verifyClient: function (info, next) {
-        console.log("passou!!");
-        // if (info.req.headers['x-fastify-header'] !== 'fastify is awesome !') {
-        //   return next(false) 
-        // }
         next(true) 
       }
     }
-  })
+  };
 
+  app.register(require('fastify-websocket'), socketOpts)
   app.register(cookie);
   app.register(chatRoutes, { prefix: "/chat" });
 
